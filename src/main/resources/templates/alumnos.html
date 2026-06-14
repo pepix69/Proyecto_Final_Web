@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<th:block th:replace="~{fragments/head}"></th:block>
+
+<body class="hold-transition sidebar-mini">
+
+<div class="wrapper">
+
+    <th:block th:replace="~{fragments/navbar}"></th:block>
+
+    <th:block th:replace="~{fragments/sidebar}"></th:block>
+
+    <div class="content-wrapper">
+
+        <section class="content-header">
+
+            <div class="container-fluid">
+
+                <div class="row mb-2">
+
+                    <div class="col-sm-6">
+
+                        <h1>Alumnos</h1>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <section class="content">
+
+            <div class="container-fluid">
+
+                <div class="card">
+
+                    <div class="card-header">
+
+                        <button class="btn btn-primary"
+                                onclick="nuevoAlumno()">
+
+                            <i class="fas fa-plus"></i>
+                            Nuevo Alumno
+
+                        </button>
+
+                        <button class="btn btn-success ml-2"
+                                onclick="abrirCorreoMasivo()">
+
+                            <i class="fas fa-envelope"></i>
+                            Correo Masivo
+
+                        </button>
+
+                    </div>
+
+                    <div class="card-body">
+
+                        <table id="tablaAlumnos"
+                               class="table table-bordered table-striped">
+
+                            <thead>
+
+                            <tr>
+
+                                <th>ID</th>
+                                <th>Matrícula</th>
+                                <th>Nombre</th>
+                                <th>Correo</th>
+                                <th>Teléfono</th>
+                                <th>Carrera</th>
+                                <th>Acciones</th>
+
+                            </tr>
+
+                            </thead>
+
+                        </table>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </div>
+
+    <th:block th:replace="~{fragments/footer}"></th:block>
+
+</div>
+
+<!-- MODAL ALUMNO -->
+
+<div class="modal fade" id="modalAlumno">
+
+    <div class="modal-dialog modal-lg">
+
+        <div class="modal-content">
+
+            <div class="modal-header">
+
+                <h4 id="tituloAlumno">
+                    Nuevo Alumno
+                </h4>
+
+            </div>
+
+            <div class="modal-body">
+
+                <input type="hidden" id="idAlumno">
+
+                <div class="row">
+
+                    <div class="col-md-6">
+
+                        <label>Matrícula</label>
+
+                        <input type="text"
+                               id="matricula"
+                               class="form-control">
+
+                    </div>
+
+                    <div class="col-md-6">
+
+                        <label>Nombre</label>
+
+                        <input type="text"
+                               id="nombre"
+                               class="form-control">
+
+                    </div>
+
+                </div>
+
+                <div class="row mt-2">
+
+                    <div class="col-md-6">
+
+                        <label>Apellido Paterno</label>
+
+                        <input type="text"
+                               id="apellidoPaterno"
+                               class="form-control">
+
+                    </div>
+
+                    <div class="col-md-6">
+
+                        <label>Apellido Materno</label>
+
+                        <input type="text"
+                               id="apellidoMaterno"
+                               class="form-control">
+
+                    </div>
+
+                </div>
+
+                <div class="row mt-2">
+
+                    <div class="col-md-6">
+
+                        <label>Correo</label>
+
+                        <input type="email"
+                               id="correo"
+                               class="form-control">
+
+                    </div>
+
+                    <div class="col-md-6">
+
+                        <label>Teléfono</label>
+
+                        <input type="text"
+                               id="telefono"
+                               class="form-control">
+
+                    </div>
+
+                </div>
+
+                <div class="row mt-2">
+
+                    <div class="col-md-6">
+
+                        <label>Fecha Nacimiento</label>
+
+                        <input type="date"
+                               id="fechaNacimiento"
+                               class="form-control">
+
+                    </div>
+
+                    <div class="col-md-6">
+
+                        <label>Carrera</label>
+
+                        <select id="carreraId"
+                                class="form-control">
+
+                        </select>
+
+                    </div>
+
+                </div>
+
+                <div class="mt-2">
+
+                    <label>Dirección</label>
+
+                    <textarea id="direccion"
+                              class="form-control"></textarea>
+
+                </div>
+
+            </div>
+
+            <div class="modal-footer">
+
+                <button class="btn btn-success"
+                        id="btnGuardarAlumno">
+
+                    Guardar
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<!-- MODAL CORREO INDIVIDUAL -->
+
+<div class="modal fade" id="modalCorreo">
+
+    <div class="modal-dialog">
+
+        <div class="modal-content">
+
+            <div class="modal-header">
+
+                <h4>Enviar Correo</h4>
+
+            </div>
+
+            <div class="modal-body">
+
+                <input type="hidden"
+                       id="correoAlumnoId">
+
+                <input type="text"
+                       id="asuntoCorreo"
+                       class="form-control mb-2"
+                       placeholder="Asunto">
+
+                <textarea id="mensajeCorreo"
+                          class="form-control"
+                          rows="5"></textarea>
+
+            </div>
+
+            <div class="modal-footer">
+
+                <button class="btn btn-primary"
+                        onclick="enviarCorreoIndividual()">
+
+                    Enviar
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<!-- MODAL CORREO MASIVO -->
+
+<div class="modal fade" id="modalMasivo">
+
+    <div class="modal-dialog">
+
+        <div class="modal-content">
+
+            <div class="modal-header">
+
+                <h4>Correo Masivo</h4>
+
+            </div>
+
+            <div class="modal-body">
+
+                <input type="text"
+                       id="asuntoMasivo"
+                       class="form-control mb-2">
+
+                <textarea id="mensajeMasivo"
+                          class="form-control"
+                          rows="5"></textarea>
+
+            </div>
+
+            <div class="modal-footer">
+
+                <button class="btn btn-success"
+                        onclick="enviarCorreoMasivo()">
+
+                    Enviar
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<th:block th:replace="~{fragments/scripts}"></th:block>
+
+<script th:src="@{/js/alumnos.js}"></script>
+
+</body>
+</html>

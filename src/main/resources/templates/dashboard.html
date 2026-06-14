@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<th:block th:replace="fragments/head"></th:block>
+
+<body class="hold-transition sidebar-mini">
+
+<div class="wrapper">
+
+    <th:block th:replace="fragments/navbar"></th:block>
+
+    <th:block th:replace="fragments/sidebar"></th:block>
+
+    <div class="content-wrapper">
+
+        <section class="content">
+
+            <div class="container-fluid">
+
+                <div class="row mt-3">
+
+                    <div class="col-lg-3">
+
+                        <div class="small-box bg-info">
+
+                            <div class="inner">
+
+                                <h3 th:text="${totalAlumnos}"></h3>
+
+                                <p>Alumnos</p>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="col-lg-3">
+
+                        <div class="small-box bg-success">
+
+                            <div class="inner">
+
+                                <h3 th:text="${totalCarreras}"></h3>
+
+                                <p>Carreras</p>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </div>
+
+    <th:block th:replace="fragments/footer"></th:block>
+
+</div>
+
+<th:block th:replace="fragments/scripts"></th:block>
+
+</body>
+
+</html>

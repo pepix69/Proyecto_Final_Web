@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<th:block th:replace="~{fragments/head}"></th:block>
+
+<body class="hold-transition sidebar-mini">
+
+<div class="wrapper">
+
+    <th:block th:replace="~{fragments/navbar}"></th:block>
+
+    <th:block th:replace="~{fragments/sidebar}"></th:block>
+
+    <div class="content-wrapper">
+
+        <section class="content-header">
+
+            <div class="container-fluid">
+
+                <div class="row mb-2">
+
+                    <div class="col-sm-6">
+
+                        <h1>Carreras</h1>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <section class="content">
+
+            <div class="container-fluid">
+
+                <div class="card">
+
+                    <div class="card-header">
+
+                        <button class="btn btn-primary"
+                                onclick="nuevoRegistro()">
+
+                            <i class="fas fa-plus"></i>
+                            Nueva Carrera
+
+                        </button>
+
+                    </div>
+
+                    <div class="card-body">
+
+                        <table id="tablaCarreras"
+                               class="table table-bordered table-striped">
+
+                            <thead>
+
+                            <tr>
+
+                                <th>ID</th>
+                                <th>Clave</th>
+                                <th>Nombre</th>
+                                <th>Descripción</th>
+                                <th>Acciones</th>
+
+                            </tr>
+
+                            </thead>
+
+                            <tbody>
+
+                            </tbody>
+
+                        </table>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </div>
+
+    <th:block th:replace="~{fragments/footer}"></th:block>
+
+</div>
+
+<!-- MODAL -->
+
+<div class="modal fade"
+     id="modalCarrera">
+
+    <div class="modal-dialog">
+
+        <div class="modal-content">
+
+            <div class="modal-header">
+
+                <h4 id="tituloModal">
+
+                    Nueva Carrera
+
+                </h4>
+
+                <button type="button"
+                        class="close"
+                        data-dismiss="modal">
+
+                    <span>&times;</span>
+
+                </button>
+
+            </div>
+
+            <div class="modal-body">
+
+                <input type="hidden"
+                       id="id">
+
+                <div class="form-group">
+
+                    <label>Clave</label>
+
+                    <input type="text"
+                           id="clave"
+                           class="form-control">
+
+                </div>
+
+                <div class="form-group">
+
+                    <label>Nombre</label>
+
+                    <input type="text"
+                           id="nombre"
+                           class="form-control">
+
+                </div>
+
+                <div class="form-group">
+
+                    <label>Descripción</label>
+
+                    <textarea id="descripcion"
+                              class="form-control">
+                    </textarea>
+
+                </div>
+
+            </div>
+
+            <div class="modal-footer">
+
+                <button class="btn btn-success"
+                        id="btnGuardar">
+
+                    Guardar
+
+                </button>
+
+                <button class="btn btn-secondary"
+                        data-dismiss="modal">
+
+                    Cancelar
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<th:block th:replace="~{fragments/scripts}"></th:block>
+
+<script th:src="@{/js/carreras.js}"></script>
+
+</body>
+
+</html>
