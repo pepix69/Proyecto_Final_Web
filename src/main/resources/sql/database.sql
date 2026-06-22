@@ -171,7 +171,7 @@ INSERT INTO usuarios(
 )
 VALUES(
     'Administrador General',
-    'admin@gestion-escolar.com',
+    'admin@escuela.com',
 
     '$2a$10$N9qo8uLOickgx2ZMRZoMyeIjZAgcfl7p92ldGxad68LJZdL17lhWy',
 

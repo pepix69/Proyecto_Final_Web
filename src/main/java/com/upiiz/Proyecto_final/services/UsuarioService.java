@@ -27,8 +27,12 @@ public class UsuarioService {
         System.out.println("Password BD: " + usuario.getPassword());
 
 
-        boolean valido =
-                encoder.matches(password, usuario.getPassword());
+        System.out.println("Password BD: " + usuario.getPassword());
+        System.out.println("Password ingresada: " + password);
+
+        boolean valido = password.equals(usuario.getPassword());
+        //boolean valido =
+        //        encoder.matches(password, usuario.getPassword());
 
         System.out.println("Resultado: " + valido);
 

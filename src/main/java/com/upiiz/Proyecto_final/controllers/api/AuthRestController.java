@@ -18,7 +18,11 @@ public class AuthRestController {
     public String login(
             @RequestBody LoginDTO dto,
             HttpSession session
-    ) {
+    )
+    {
+        System.out.println("ENTRO AL CONTROLADOR");
+
+
 
         Usuario usuario =
                 usuarioService.login(
