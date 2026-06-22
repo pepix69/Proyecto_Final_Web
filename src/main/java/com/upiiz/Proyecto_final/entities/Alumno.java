@@ -22,7 +22,7 @@ public class Alumno {
 
     private String nombre;
 
-    @Column("apellidp_paterno")
+    @Column("apellido_paterno")
     private String apellidoPaterno;
 
     @Column("apellido_materno")

@@ -11,7 +11,7 @@ public class SecurityConfig {
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http)
             throws Exception {
-
+        /*
         http
                 .csrf(csrf -> csrf.disable())
                 .authorizeHttpRequests(auth -> auth
@@ -24,6 +24,16 @@ public class SecurityConfig {
                                 "/adminlte/**"
                         ).permitAll()
                         .anyRequest().authenticated()
+                )
+                .formLogin(form -> form.disable());
+
+        return http.build();
+
+         */
+        http
+                .csrf(csrf -> csrf.disable())
+                .authorizeHttpRequests(auth -> auth
+                        .anyRequest().permitAll()
                 )
                 .formLogin(form -> form.disable());
 
