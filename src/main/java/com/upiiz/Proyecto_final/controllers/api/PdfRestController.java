@@ -23,9 +23,8 @@ public class PdfRestController {
         return ResponseEntity.ok()
                 .header(
                         HttpHeaders.CONTENT_DISPOSITION,
-                        "attachment; filename=constancia.pdf")
-                .contentType(
-                        MediaType.APPLICATION_PDF)
+                        "inline; filename=constancia.pdf")
+                .contentType(MediaType.APPLICATION_PDF)
                 .body(pdf);
     }
 

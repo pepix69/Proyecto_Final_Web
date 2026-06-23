@@ -1,9 +1,8 @@
 package com.upiiz.Proyecto_final.entities;
 
-import jakarta.persistence.Id;
 import lombok.*;
 import org.springframework.data.relational.core.mapping.Table;
-
+import org.springframework.data.annotation.Id;
 
 @Data
 @Builder

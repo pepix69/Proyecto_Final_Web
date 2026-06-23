@@ -278,6 +278,11 @@
 
                 </button>
 
+                <button class="btn btn-secondary"
+                        data-dismiss="modal">
+                    Cancelar
+                </button>
+
             </div>
 
         </div>
@@ -321,6 +326,11 @@
 
                 </button>
 
+                <button class="btn btn-secondary"
+                        data-dismiss="modal">
+                    Cancelar
+                </button>
+
             </div>
 
         </div>
@@ -329,9 +339,49 @@
 
 </div>
 
+<div class="modal fade" id="modalPdf">
+    <div class="modal-dialog modal-xl">
+        <div class="modal-content">
+
+            <div class="modal-header">
+                <h5>Constancia</h5>
+            </div>
+
+            <div class="modal-body">
+
+                <iframe
+                        id="pdfViewer"
+                        width="100%"
+                        height="600px">
+                </iframe>
+
+            </div>
+
+            <div class="modal-footer">
+
+                <a id="btnDescargarPdf"
+                   class="btn btn-success"
+                   download>
+                    Descargar
+                </a>
+
+                <button
+                        class="btn btn-secondary"
+                        data-dismiss="modal">
+                    Cerrar
+                </button>
+
+            </div>
+
+        </div>
+    </div>
+</div>
+
 <th:block th:replace="~{fragments/scripts}"></th:block>
 
 <script th:src="@{/js/alumnos.js}"></script>
+<script th:src="@{/js/pdf.js}"></script>
+<script th:src="@{/js/correos.js}"></script>
 
 </body>
 </html>
